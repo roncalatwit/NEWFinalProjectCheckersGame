@@ -7,17 +7,49 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * The CheckersApp class is the main entry point for the checkers game application.
+ * It sets up the game board and starts the JavaFX application.
+ * 
+ * @author Roncal and Luong
+ */
 public class CheckersApp extends Application{
 
+	/**
+     * Size of each tile on the checkers board.
+     */
 	public static final int TILE_SIZE = 100;
+	
+	/**
+     * Width of the checkers board.
+     */
 	public static final int WIDTH = 8;
+	
+	/**
+     * Height of the checkers board.
+     */
 	public static final int HEIGHT = 8;
 	
+	/**
+     * 2D array representing the checkers board.
+     */
 	private Tile[][] board = new Tile[WIDTH][HEIGHT];
 	
+	/**
+     * Group containing all tiles on the board.
+     */
 	private Group tileGroup = new Group();
+	
+	/**
+     * Group containing all pieces on the board.
+     */
 	private Group pieceGroup = new Group();
 	
+	/**
+     * Creates the content for the application scene.
+     *
+     * @return The root node containing all graphical elements of the game.
+     */
 	private Parent createContent() {
 		Pane root = new Pane();
 		root.setPrefSize(WIDTH * TILE_SIZE, HEIGHT * TILE_SIZE);
@@ -52,6 +84,14 @@ public class CheckersApp extends Application{
 		return root;
 	}
 	
+	/**
+     * Attempts to move a piece to the specified coordinates.
+     *
+     * @param piece The piece to move.
+     * @param newX  The new X-coordinate for the piece.
+     * @param newY  The new Y-coordinate for the piece.
+     * @return The result of the move.
+     */
 	private MoveResult tryMove(Piece piece, int newX, int newY) {
 		if(board[newX][newY].hasPiece() || (newX + newY)%2==0) {
 			return new MoveResult(MoveType.NONE);
@@ -73,10 +113,25 @@ public class CheckersApp extends Application{
 
 	}
 	
+	/**
+     * Converts pixel coordinates to board coordinates.
+     *
+     * @param pixel The pixel coordinate to convert.
+     * @return The board coordinate.
+     */
 	private int toBoard(double pixel) {
 		return (int)(pixel + TILE_SIZE/2)/ TILE_SIZE;
 	}
 	
+	
+	 /**
+     * Starts the JavaFX application, setting the stage with a scene that contains
+     * the checkers game content.
+     * 
+     * @param primaryStage The primary stage for this application, onto which
+     *                     the application scene can be set.
+     * @throws Exception if an error occurs during application start.
+     */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Scene scene = new Scene(createContent());
@@ -85,6 +140,14 @@ public class CheckersApp extends Application{
 		primaryStage.show();
 	}
 	
+	/**
+     * Creates a new piece of the specified type and adds it to the board.
+     *
+     * @param type The type of piece to create.
+     * @param x    The initial X-coordinate for the piece.
+     * @param y    The initial Y-coordinate for the piece.
+     * @return The newly created piece.
+     */
 	private Piece makePiece(PieceType type, int x, int y) {
 		Piece piece = new Piece(type, x, y);
 		
@@ -129,6 +192,11 @@ public class CheckersApp extends Application{
 		return piece;
 	}
 	
+	/**
+     * The main method that launches the checkers game application.
+     * 
+     * @param args Command line arguments passed to the application.
+     */
 	public static void main(String[] args) {launch(args);}
 
 }

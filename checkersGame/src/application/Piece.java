@@ -5,26 +5,60 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import static application.CheckersApp.TILE_SIZE;
 
+/**
+ * Represents a piece in the checkers game, which is drawn as an ellipse on the board.
+ * It also contains logic for mouse interactions to move the piece.
+ * 
+ * @author Roncal and Luong
+ */
 public class Piece extends StackPane{
+	
+	/**
+     * The type of piece.
+     */
 	private PieceType type;
 	
 	private double mouseX, mouseY;
+	
+	/**
+     * The X and Y coordinates of the piece's previous position.
+     */
 	private double oldX, oldY;
 	
-	
+	/**
+     * Gets the type of piece.
+     *
+     * @return The type of piece.
+     */
 	public PieceType getType() {
 		return type;
 	}
 	
-	
+	/**
+     * Gets the X-coordinate of the piece's previous position.
+     *
+     * @return The X-coordinate of the previous position.
+     */
 	public double getOldX() {
 		return oldX;
 	}
 	
+	/**
+     * Gets the Y-coordinate of the piece's previous position.
+     *
+     * @return The Y-coordinate of the previous position.
+     */
 	public double getOldY(){
 		return oldY;
 	}
 	
+	/**
+     * Creates a piece and sets its initial position on the game board.
+     * 
+     * @param type The type of the piece, which can be either RED or BLUE.
+     * @param x    The initial x-coordinate on the game board.
+     * @param y    The initial y-coordinate on the game board.
+     */
 	public Piece(PieceType type, int x, int y) {
 		this.type = type;
 		
@@ -58,7 +92,12 @@ public class Piece extends StackPane{
 		});
 	}
 	
-	
+	/**
+     * Moves the piece to the specified coordinates on the game board.
+     * 
+     * @param x The x-coordinate to move to.
+     * @param y The y-coordinate to move to.
+     */
 	public void move(int x, int y) {
 		oldX = x*TILE_SIZE;
 		oldY = y*TILE_SIZE;
@@ -66,6 +105,9 @@ public class Piece extends StackPane{
 		
 	}
 	
+	/**
+     * Aborts the current move and resets the piece to its previous position.
+     */
 	public void abortMove() {
 		relocate(oldX, oldY);
 	}
