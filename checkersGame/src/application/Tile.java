@@ -14,7 +14,7 @@ public class Tile extends Rectangle {
 	/**
      * The piece occupying the tile (if any).
      */
-	private Piece piece;
+	private Piece piece; 
 	
 	/**
      * Checks if the tile has a piece occupying it.

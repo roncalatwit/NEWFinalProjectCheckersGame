@@ -17,7 +17,7 @@ public enum MoveType {
 	NORMAL, 
 	/**
      * Move resulting in a captured piece.
-     */
+     */ 
 	KILL;
 	
 }

@@ -61,7 +61,7 @@ public class Piece extends StackPane{
      */
 	public Piece(PieceType type, int x, int y) {
 		this.type = type;
-		
+		 
 		move(x, y);
 		
 		Ellipse bg = new Ellipse(TILE_SIZE * 0.3125, TILE_SIZE *0.26);

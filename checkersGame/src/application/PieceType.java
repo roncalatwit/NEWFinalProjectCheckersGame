@@ -8,7 +8,7 @@ package application;
  */
 public enum PieceType {
 
-	/**
+	/** 
      * Red piece with a positive move direction.
      */
 	RED(1), 

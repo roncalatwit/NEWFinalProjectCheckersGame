@@ -17,7 +17,7 @@ public class MoveResult {
      * Gets the type of move.
      *
      * @return The type of move.
-     */
+     */ 
 	public MoveType getType() {
 		return type;
 	}

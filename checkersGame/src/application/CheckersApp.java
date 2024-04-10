@@ -137,7 +137,7 @@ public class CheckersApp extends Application{
 		Scene scene = new Scene(createContent());
 		primaryStage.setTitle("Checkers");
 		primaryStage.setScene(scene);
-		primaryStage.show();
+		primaryStage.show(); 
 	}
 	
 	/**
