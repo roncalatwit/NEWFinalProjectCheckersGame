@@ -8,6 +8,7 @@ This project is a JavaFX implementation of the classic game of checkers. The gam
 
 - Java Development Kit (JDK) 8 or above
 - JavaFX SDK
+- Uses libraries we used in class demonstrations
 
 ### Installation
 
